@@ -1,0 +1,22 @@
+#headerBackground{
+    background-color: #5577cc ;
+    width: 100%;
+    height: 5em;
+}
+
+#mainBox{
+    height: 2000px;
+}
+
+.navButtons{
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+nav h2{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
