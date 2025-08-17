@@ -1,34 +1,53 @@
-var parent = document.getElementById("questionCreationContainer");
+var questionsArray = []; 
 
+var correctParent = document.getElementById("correctAnswerDiv");
+var fillerParent = document.getElementById("fillerAnswerDiv");
 
-function setupButton(){
 var getFiller = document.getElementById("addFillerAnswerButton");
+var getCorrect = document.getElementById("addCorrectAnswerButton");
 
 
-
-    getFiller.addEventListener("click", () => {
-    getFiller.remove();
-
-
-    const newText = document.createElement("h1");
-    newText.textContent = "Filler answer";
-    parent.appendChild(newText);
-
+getFiller.addEventListener("click", () => {
     const newInput =  document.createElement("INPUT");
+    newInput.className = "fillerAnswer";
     newInput.setAttribute("type", "text");
-    parent.appendChild(newInput);
+    fillerParent.appendChild(newInput);
+    fillerParent.appendChild(document.createElement("br"));
+});
 
-    parent.appendChild(document.createElement("br"));
-
-
-    const newButton = document.createElement("button")
-    newButton.id = "addFillerAnswerButton";
-    newButton.textContent = "Add Filler Answer";
-    parent.appendChild(newButton);
-
-    setupButton();
+getCorrect.addEventListener("click", () => {
+    const newInput = document.createElement("INPUT");
+    newInput.className = "correctAnswer";
+    newInput.setAttribute("type", "text");
+    correctParent.appendChild(newInput);
+    correctParent.appendChild(document.createElement("br"));
 })
-};
+
+var getSubmitButton = document.getElementById("submitQuestionButton");
+var question = document.getElementById("question");
+
+getSubmitButton.addEventListener("click", () => {
+    var actualQuestion = question.value;
+
+    var fillerInputs = document.querySelectorAll(".fillerAnswer");
+    var fillerArray = [];
+    fillerInputs.forEach(input => {
+        fillerArray.push(input.value);
+    });
+
+    var correctInputs = document.querySelectorAll(".correctAnswer");
+    var correctArray = [];
+    correctInputs.forEach(input => {
+        correctArray.push(input.value);
+    });
 
 
-setupButton();
+    var questionObject = {
+    question: actualQuestion,
+    fillerValues: fillerArray,
+    correctValues: correctArray,
+    };
+
+    questionsArray.push(questionObject);
+    console.log(questionsArray);
+});

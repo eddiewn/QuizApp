@@ -6,7 +6,6 @@
     <title>Creating Quiz</title>
 
     <script src="../Header/header.js" defer></script>
-    <script src="./createQuiz.js" defer></script>
     
     <link rel="stylesheet" href="../Header/header.css">
     <link rel="stylesheet" href="../main.css">
@@ -18,19 +17,30 @@
 
     <main>
         <div id="questionCreationContainer">
-            <h1>Question:</h1>
-            <input type="text">
+            <div>
+                <h1>Question:</h1>
+            </div>
 
-            <h1>Correct answer</h1>
-            <input type="text">
-            <br>
-            <button id="addFillerQuestionButton">Add correct answer</button>
-
-            <h1>Filler answer</h1>
-            <input type="text">
-            <br>
+            <div id="correctAnswerDiv">
+                <input id="question" type="text">
+                <h1>Correct answer</h1>
+                <input class ="correctAnswer" type="text">
+                <br>
+            </div>
+            <div id="fillerAnswerDiv">
+                <h1>Filler answer</h1>
+                <input class="fillerAnswer" type="text">
+                <br>
+            </div>
+        </div>
+        <div id="buttonsDiv">
+            <button id="addCorrectAnswerButton">Add correct answer</button>
             <button id="addFillerAnswerButton">Add filler answer</button>
+            <button id="submitQuestionButton">Submit Question</button>
         </div>
     </main>
+
+        <script src="./createQuiz.js"></script>
+
 </body>
 </html>
