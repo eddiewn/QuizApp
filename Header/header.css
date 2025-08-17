@@ -4,19 +4,26 @@
     height: 5em;
 }
 
-#mainBox{
-    height: 2000px;
-}
-
 .navButtons{
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
 
 }
 
-nav h2{
+nav a{
+    color: black;
     margin-right: 20px;
     margin-left: 20px;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: 0.15s;
+
+}
+
+a:hover{
+        cursor: pointer;
+        transform: scale(1.1);
 }
 
