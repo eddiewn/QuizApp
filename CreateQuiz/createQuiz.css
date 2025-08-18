@@ -1,8 +1,12 @@
+#buttonsDiv{
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+}
 
-
-
-
-
+#buttonsDiv > button{
+        margin: 1em;
+}
 
 
 
@@ -18,37 +22,5 @@
     margin: auto;
 }
 
+/* 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#buttonsDiv{
-    display: flex;
-    justify-content: center;
-    padding-top: 2em;
-}
-
-#buttonsDiv > button{
-        margin: 1em;
-}

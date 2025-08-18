@@ -1,10 +1,10 @@
-var questionsArray = []; 
+let questionsArray = []; 
 
-var correctParent = document.getElementById("correctAnswerDiv");
-var fillerParent = document.getElementById("fillerAnswerDiv");
+let correctParent = document.getElementById("correctAnswerDiv");
+let fillerParent = document.getElementById("fillerAnswerDiv");
 
-var getFiller = document.getElementById("addFillerAnswerButton");
-var getCorrect = document.getElementById("addCorrectAnswerButton");
+let getFiller = document.getElementById("addFillerAnswerButton");
+let getCorrect = document.getElementById("addCorrectAnswerButton");
 
 
 getFiller.addEventListener("click", () => {
@@ -21,26 +21,30 @@ getCorrect.addEventListener("click", () => {
     correctParent.appendChild(newInput);
 })
 
-var getSubmitButton = document.getElementById("submitQuestionButton");
-var question = document.getElementById("question");
+let getSubmitButton = document.getElementById("submitQuestionButton");
+
+
 
 getSubmitButton.addEventListener("click", () => {
-    var actualQuestion = question.value;
 
-    var fillerInputs = document.querySelectorAll(".fillerAnswer");
-    var fillerArray = [];
+
+    let question = document.getElementById("question");
+    let actualQuestion = question.value;
+
+    let fillerInputs = document.querySelectorAll(".fillerAnswer");
+    let fillerArray = [];
     fillerInputs.forEach(input => {
         fillerArray.push(input.value);
     });
 
-    var correctInputs = document.querySelectorAll(".correctAnswer");
-    var correctArray = [];
+    let correctInputs = document.querySelectorAll(".correctAnswer");
+    let correctArray = [];
     correctInputs.forEach(input => {
         correctArray.push(input.value);
     });
 
 
-    var questionObject = {
+    let questionObject = {
     question: actualQuestion,
     fillerValues: fillerArray,
     correctValues: correctArray,
@@ -48,4 +52,24 @@ getSubmitButton.addEventListener("click", () => {
 
     questionsArray.push(questionObject);
     console.log(questionsArray);
+
+
+    addQuestion(questionsArray);
+
 });
+
+
+    let scuffedCounter = 0;
+function addQuestion(questionsArray){
+    let container = document.createElement("div");
+    container.classList.add("questionBlock")
+    
+    let paragraph = document.createElement("p");
+    paragraph.textContent = "Question is: " + questionsArray[scuffedCounter].question + " Wrong answers are: " + questionsArray[scuffedCounter].fillerValues + " Correct answer is: " + questionsArray[scuffedCounter].correctValues;
+
+    container.appendChild(paragraph)
+
+    document.querySelector(".previewQuestionDiv").appendChild(container);
+    scuffedCounter++;
+
+}
