@@ -12,7 +12,6 @@ getFiller.addEventListener("click", () => {
     newInput.className = "fillerAnswer";
     newInput.setAttribute("type", "text");
     fillerParent.appendChild(newInput);
-    fillerParent.appendChild(document.createElement("br"));
 });
 
 getCorrect.addEventListener("click", () => {
@@ -20,7 +19,6 @@ getCorrect.addEventListener("click", () => {
     newInput.className = "correctAnswer";
     newInput.setAttribute("type", "text");
     correctParent.appendChild(newInput);
-    correctParent.appendChild(document.createElement("br"));
 })
 
 var getSubmitButton = document.getElementById("submitQuestionButton");

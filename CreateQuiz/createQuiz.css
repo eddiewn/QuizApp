@@ -1,4 +1,54 @@
-h1 {
-    margin: 0;
-    padding: 0;
+
+
+
+
+
+
+
+
+
+#questionCreationContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.correctAnswer, .fillerAnswer {
+    display: block;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#buttonsDiv{
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+#buttonsDiv > button{
+        margin: 1em;
 }

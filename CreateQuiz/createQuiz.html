@@ -16,28 +16,33 @@
     <re-use-header></re-use-header>
 
     <main>
-        <div id="questionCreationContainer">
-            <div>
-                <h1>Question:</h1>
-            </div>
 
-            <div id="correctAnswerDiv">
-                <input id="question" type="text">
-                <h1>Correct answer</h1>
-                <input class ="correctAnswer" type="text">
-                <br>
-            </div>
-            <div id="fillerAnswerDiv">
-                <h1>Filler answer</h1>
-                <input class="fillerAnswer" type="text">
-                <br>
-            </div>
-        </div>
         <div id="buttonsDiv">
             <button id="addCorrectAnswerButton">Add correct answer</button>
             <button id="addFillerAnswerButton">Add filler answer</button>
             <button id="submitQuestionButton">Submit Question</button>
         </div>
+
+        <div id="questionCreationContainer">
+            <div>
+                <h1>Question:</h1>
+                <input id="question" type="text">
+            </div>
+
+            <div id="correctAnswerDiv">
+                <h1>Correct answer</h1>
+                <input class ="correctAnswer" type="text">
+            </div>
+            <div id="fillerAnswerDiv">
+                <h1>Wrong answer</h1>
+                <input class="fillerAnswer" type="text">
+            </div>
+        </div>
+
+        <div id="previewQuizDiv">
+            <p>test</p>
+        </div>
+
     </main>
 
         <script src="./createQuiz.js"></script>
