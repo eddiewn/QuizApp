@@ -1,4 +1,4 @@
-let questionsArray = []; 
+let quizArray = []; 
 
 let correctParent = document.getElementById("correctAnswerDiv");
 let fillerParent = document.getElementById("fillerAnswerDiv");
@@ -50,26 +50,33 @@ getSubmitButton.addEventListener("click", () => {
     correctValues: correctArray,
     };
 
-    questionsArray.push(questionObject);
-    console.log(questionsArray);
+    quizArray.push(questionObject);
+    console.log(quizArray);
 
 
-    addQuestion(questionsArray);
+    addQuestion(quizArray);
 
 });
 
 
-    let scuffedCounter = 0;
-function addQuestion(questionsArray){
+let scuffedCounter = 0;
+function addQuestion(quizArray){
     let container = document.createElement("div");
     container.classList.add("questionBlock")
     
     let paragraph = document.createElement("p");
-    paragraph.textContent = "Question is: " + questionsArray[scuffedCounter].question + " Wrong answers are: " + questionsArray[scuffedCounter].fillerValues + " Correct answer is: " + questionsArray[scuffedCounter].correctValues;
+    paragraph.textContent = "Question is: " + quizArray[scuffedCounter].question + " Wrong answers are: " + quizArray[scuffedCounter].fillerValues + " Correct answer is: " + quizArray[scuffedCounter].correctValues;
 
     container.appendChild(paragraph)
 
     document.querySelector(".previewQuestionDiv").appendChild(container);
     scuffedCounter++;
-
 }
+
+let getCompleteQuizButton = document.getElementById("completeQuizButton")
+
+getCompleteQuizButton.addEventListener("click", () => {
+    console.log("Quiz array at save:", quizArray);
+    localStorage.setItem("quizzes", JSON.stringify(quizArray));
+
+});
