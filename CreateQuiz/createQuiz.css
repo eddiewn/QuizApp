@@ -8,9 +8,6 @@
         margin: 1em;
 }
 
-
-
-
 #questionCreationContainer{
     display: flex;
     justify-content: space-around;
@@ -21,6 +18,4 @@
     display: block;
     margin: auto;
 }
-
-/* 
 
