@@ -2,15 +2,20 @@ const savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 const parent = document.getElementById("displayQuizDiv");
 
 
-for (let index = 0; index < savedQuizzes.length; index++) {
-    let quizDiv = document.createElement("div");
-    let displayQuiz = document.createElement("p");
-    displayQuiz.textContent = savedQuizzes[index].correctValues + savedQuizzes[index].question + savedQuizzes[index].fillerValues + " || ";
-    quizDiv.appendChild(displayQuiz)
-    parent.appendChild(quizDiv)
+savedQuizzes.forEach((quizArray, quizIndex) => {
 
-}
+    const singularQuizDiv = document.createElement("div")
+    const quizHeader = document.createElement("h2")
+    quizHeader.textContent = "Quiz: " + (Number(quizIndex + 1));
 
+    singularQuizDiv.appendChild(quizHeader);
 
 
+    quizArray.forEach((questionObj, questionIndex) => {
+        const displayQuiz = document.createElement("P");
+        displayQuiz.textContent = "Question: " + questionObj.question + " Filler Answer: " + questionObj.fillerValues + " Correct Answer: " + questionObj.correctValues;
+        singularQuizDiv.appendChild(displayQuiz);
+        parent.appendChild(singularQuizDiv);
+    });
+});
 

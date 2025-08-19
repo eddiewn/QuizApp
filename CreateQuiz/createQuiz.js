@@ -76,7 +76,11 @@ function addQuestion(quizArray){
 let getCompleteQuizButton = document.getElementById("completeQuizButton")
 
 getCompleteQuizButton.addEventListener("click", () => {
+
     console.log("Quiz array at save:", quizArray);
-    localStorage.setItem("quizzes", JSON.stringify(quizArray));
+
+    let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+    savedQuizzes.push(quizArray)
+    localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
 });
