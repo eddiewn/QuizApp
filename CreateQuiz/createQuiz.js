@@ -32,22 +32,32 @@ getSubmitButton.addEventListener("click", () => {
     let actualQuestion = question.value;
 
     let fillerInputs = document.querySelectorAll(".fillerAnswer");
+    let correctInputs = document.querySelectorAll(".correctAnswer");
+
+    let missingFiller = Array.from(fillerInputs).some(input => !input.value.trim())
+    let missingCorrect = Array.from(correctInputs).some(input => !input.value.trim())
+
+    if(missingFiller && missingCorrect){
+        alert("You are missing to fill inputs")
+        return;
+    }else{
+
+    
+
     let fillerArray = [];
     fillerInputs.forEach(input => {
         fillerArray.push(input.value);
     });
 
-    let correctInputs = document.querySelectorAll(".correctAnswer");
     let correctArray = [];
     correctInputs.forEach(input => {
         correctArray.push(input.value);
     });
 
-
     let questionObject = {
-    question: actualQuestion,
-    fillerValues: fillerArray,
-    correctValues: correctArray,
+        question: actualQuestion,
+        fillerValues: fillerArray,
+        correctValues: correctArray,
     };
 
     quizArray.push(questionObject);
@@ -56,6 +66,7 @@ getSubmitButton.addEventListener("click", () => {
 
     addQuestion(quizArray);
     cleanInputs(question, fillerInputs, correctInputs);
+    }
 });
 
 
