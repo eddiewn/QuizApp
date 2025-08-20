@@ -55,7 +55,7 @@ getSubmitButton.addEventListener("click", () => {
 
 
     addQuestion(quizArray);
-
+    cleanInputs(question, fillerInputs, correctInputs);
 });
 
 
@@ -84,3 +84,13 @@ getCompleteQuizButton.addEventListener("click", () => {
     localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
 });
+
+function cleanInputs(question, filler, correct){
+    question.value = "";
+    filler.forEach(input => {
+        input.value = "";
+    });
+    correct.forEach(input => {
+        input.value = "";
+    });
+}
