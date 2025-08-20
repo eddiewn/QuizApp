@@ -1,11 +1,17 @@
 let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-const parent = document.getElementById("displayQuizDiv");
+
 
 function loadQuizzes(){
-savedQuizzes.forEach((quizArray, quizIndex) => {
-    parent.remove();
+    let mainTag = document.querySelector("main")
+    mainTag.innerHTML = ""; 
 
-    const parent = document.getElementById("displayQuizDiv");
+savedQuizzes.forEach((quizArray, quizIndex) => {
+
+    const parentDiv = document.createElement("div")
+    parentDiv.id = "displayQuizDiv";
+
+    mainTag.appendChild(parentDiv);
+
     const singularQuizDiv = document.createElement("div");
     const quizHeader = document.createElement("h2");
     quizHeader.textContent = "Quiz: " + (Number(quizIndex + 1));
@@ -23,12 +29,13 @@ savedQuizzes.forEach((quizArray, quizIndex) => {
         displayQuiz.textContent = "Question: " + questionObj.question + " Filler Answer: " + questionObj.fillerValues + " Correct Answer: " + questionObj.correctValues;
 
         singularQuizDiv.appendChild(displayQuiz);
-        parent.appendChild(singularQuizDiv);
+        parentDiv.appendChild(singularQuizDiv);
     });
 });
-}
 
-loadQuizzes();
+
+
+}
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('removeQuiz')) {
@@ -42,6 +49,7 @@ document.addEventListener('click', (event) => {
     localStorage.setItem('quizzes', JSON.stringify(savedQuizzes));
 
     loadQuizzes();
-
   }
 });
+
+loadQuizzes();
