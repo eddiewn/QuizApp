@@ -41,18 +41,25 @@ savedQuizzes.forEach((quizArray, quizIndex) => {
 }
 
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('removeQuiz')) {
     let quizIndex = event.target.id.slice(-1);
+
+  if (event.target.classList.contains("removeQuiz")) {
     quizIndex = parseInt(quizIndex);
 
     savedQuizzes = savedQuizzes.filter((_, i) => i !== quizIndex);
 
     console.log(savedQuizzes);
 
-    localStorage.setItem('quizzes', JSON.stringify(savedQuizzes));
+    localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
     loadQuizzes();
-  }
+    }
+
+    
+    if (event.target.classList.contains("playQuiz")){
+        localStorage.setItem("playSelectedQuiz", quizIndex);
+        window.location.href="../Game/game.html";
+    }
 });
 
 loadQuizzes();
