@@ -1,5 +1,4 @@
 let quizIndex = localStorage.getItem("playSelectedQuiz")
-console.log(`I am now playing quiz ${quizIndex}`);
 localStorage.removeItem("playSelectedQuiz");
 let questionTracker = 0;
 
