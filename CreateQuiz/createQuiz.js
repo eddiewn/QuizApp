@@ -67,6 +67,9 @@ getSubmitButton.addEventListener("click", () => {
     addQuestion(quizArray);
     cleanInputs(question, fillerInputs, correctInputs);
     }
+
+
+
 });
 
 
@@ -94,6 +97,9 @@ getCompleteQuizButton.addEventListener("click", () => {
     savedQuizzes.push(quizArray)
     localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
+    document.querySelector(".previewQuestionDiv").innerHTML = "";
+
+
 });
 
 function cleanInputs(question, filler, correct){
@@ -104,4 +110,9 @@ function cleanInputs(question, filler, correct){
     correct.forEach(input => {
         input.value = "";
     });
+
+    [...filler].slice(1).forEach(input => input.remove());
+    [...correct].slice(1).forEach(input => input.remove());
+
+
 }

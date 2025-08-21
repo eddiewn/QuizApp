@@ -4,7 +4,6 @@ let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 function loadQuizzes(){
     let mainTag = document.querySelector("main")
     mainTag.innerHTML = ""; 
-
 savedQuizzes.forEach((quizArray, quizIndex) => {
 
     const parentDiv = document.createElement("div")
@@ -14,14 +13,21 @@ savedQuizzes.forEach((quizArray, quizIndex) => {
 
     const singularQuizDiv = document.createElement("div");
     const quizHeader = document.createElement("h2");
+    const playButton = document.createElement("button");
+
+    playButton.innerText = "Play Quiz!"
+    playButton.className = "playQuiz";
+    playButton.id = `playButtonFor${quizIndex}`;
+
     quizHeader.textContent = "Quiz: " + (Number(quizIndex + 1));
 
     const removeButton = document.createElement("button");
-    removeButton.innerText = "test";
+    removeButton.innerText = "Delete";
     removeButton.className = "removeQuiz";
     removeButton.id = `buttonForQuiz${quizIndex}`;
 
     singularQuizDiv.appendChild(quizHeader);
+    singularQuizDiv.appendChild(playButton);
     singularQuizDiv.appendChild(removeButton);
 
     quizArray.forEach((questionObj, questionIndex) => {
@@ -32,9 +38,6 @@ savedQuizzes.forEach((quizArray, quizIndex) => {
         parentDiv.appendChild(singularQuizDiv);
     });
 });
-
-
-
 }
 
 document.addEventListener('click', (event) => {
