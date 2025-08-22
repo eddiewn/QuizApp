@@ -57,11 +57,22 @@ function game(quiz){
 
 	mainTag.appendChild(answerContainer);
 
+document.querySelectorAll(".answerSquare").forEach(square => {
+	square.addEventListener("click", function() {
+	
+		quiz[questionTracker].correctValues.forEach(correctAnswer => {
+			if(square.textContent == correctAnswer){
+				alert("You pressed the correct answer");
+			}else{
+				alert("You pressed the wrong answer");
+			}
+		});
+	});
+});
 
-	console.log("AM i in loop???");
-	console.log("answer: no");
 
 
+	console.log("Am I in loop??");
 }
 
 function shuffle(quiz){

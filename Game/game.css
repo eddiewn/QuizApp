@@ -27,5 +27,6 @@
     margin-bottom: 1em;
     background-color: greenyellow;
     border-radius: 1em;
+    border: 0.1em solid black;
     height: auto;
 }
