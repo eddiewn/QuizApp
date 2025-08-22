@@ -59,14 +59,26 @@ function game(quiz){
 
 document.querySelectorAll(".answerSquare").forEach(square => {
 	square.addEventListener("click", function() {
-	
-		quiz[questionTracker].correctValues.forEach(correctAnswer => {
-			if(square.textContent == correctAnswer){
+	const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
+      	square.textContent == correctAnswer
+	);
+
+			if(isCorrect){
 				alert("You pressed the correct answer");
 			}else{
 				alert("You pressed the wrong answer");
-			}
-		});
+			};
+
+			document.querySelectorAll(".answerSquare").forEach(square => {
+
+				if(quiz[questionTracker].correctValues.includes(square.textContent)){
+				square.style.backgroundColor = "green";
+				}else{
+				square.style.backgroundColor = "red";
+				}
+
+			})
+
 	});
 });
 
