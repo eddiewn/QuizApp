@@ -5,9 +5,10 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 3em;
+    font-size: 16px;
 }
 
-#questionDiv p{
+#questionP{
     font-size: 3em;
 }
 
@@ -16,7 +17,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .answerSquare{
@@ -26,4 +27,5 @@
     margin-bottom: 1em;
     background-color: greenyellow;
     border-radius: 1em;
+    height: auto;
 }

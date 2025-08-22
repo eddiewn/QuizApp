@@ -5,6 +5,18 @@ let questionTracker = 0;
 let quizzes = JSON.parse(localStorage.getItem('quizzes'));
 let quiz = quizzes[quizIndex];
 
+
+// SHUFFLE FUNKAR INTE, ALERT SHUFFLE FUNKAR INTE!!!!!
+// Den shufflar alla svar men PGA hur jag printar ur det,
+//  så kommer correct alltid vara det sista alternativet.
+
+// För att lösa detta antingen shuffla alla i EN array,
+//  så correctAnswer kan ligga bara random i mitten.
+
+// Eller randomiza hur den printar ut svaren i spelet.
+
+
+
 function game(quiz){
     quiz = shuffle(quiz);
     console.log("Game has started!");
