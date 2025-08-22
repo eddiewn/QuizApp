@@ -5,86 +5,83 @@ let questionTracker = 0;
 let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 let quiz = quizzes[quizIndex];
     quiz = shuffle(quiz);
+	console.log(quiz.question)
 function game(quiz){
-    console.log("Game has started!");
-    console.log(quiz)
+	if(questionTracker != quiz.length){
+		console.log("Game has started!");
+		console.log(quiz)
 
-	let mainTag = document.querySelector("main")
+		let mainTag = document.querySelector("main")
 
-	let questionDiv = document.createElement("div");
-	questionDiv.id = "questionDiv";
+		let questionDiv = document.createElement("div");
+		questionDiv.id = "questionDiv";
 
-	let questionP = document.createElement("p");
-	questionP.id = "questionP";
+		let questionP = document.createElement("p");
+		questionP.id = "questionP";
 
-	let answerDiv = document.createElement("div");
-	answerDiv.id = "answerDiv"
+		let answerDiv = document.createElement("div");
+		answerDiv.id = "answerDiv"
 
-	questionP.innerText = quiz[questionTracker].question;
+		questionP.innerText = quiz[questionTracker].question;
 
-	questionDiv.appendChild(questionP);
-	mainTag.appendChild(questionDiv);
+		questionDiv.appendChild(questionP);
+		mainTag.appendChild(questionDiv);
 
-	let answerContainer = document.createElement("div");
-	answerContainer.id = "answerContainer";
+		let answerContainer = document.createElement("div");
+		answerContainer.id = "answerContainer";
 
-	const randomizedAnswers = fisherYatesShuffle(allAnswers(quiz));
+		const randomizedAnswers = fisherYatesShuffle(allAnswers(quiz));
 
-	randomizedAnswers.forEach(answer => {
-		console.log(answer);
-		let answerSquare = document.createElement("div");
-		answerSquare.className = "answerSquare";
-	
-		let answerSquareP = document.createElement("p");
-		answerSquareP.innerText = answer;
+		randomizedAnswers.forEach(answer => {
+			console.log(answer);
+			let answerSquare = document.createElement("div");
+			answerSquare.className = "answerSquare";
+		
+			let answerSquareP = document.createElement("p");
+			answerSquareP.innerText = answer;
 
-		answerSquare.appendChild(answerSquareP);
-		answerContainer.appendChild(answerSquare);
-	});
+			answerSquare.appendChild(answerSquareP);
+			answerContainer.appendChild(answerSquare);
+		});
 
-	mainTag.appendChild(answerContainer);
+		mainTag.appendChild(answerContainer);
 
-document.querySelectorAll(".answerSquare").forEach(square => {
-	square.addEventListener("click", function() {
-	const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
-      	square.textContent == correctAnswer
-		);
+	document.querySelectorAll(".answerSquare").forEach(square => {
+		square.addEventListener("click", function() {
+		const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
+			square.textContent == correctAnswer
+			);
 
-			if(isCorrect){
-				
-			}else{
-
-			};
-
-			document.querySelectorAll(".answerSquare").forEach(square => {
-
-				if(quiz[questionTracker].correctValues.includes(square.textContent)){
-				square.style.backgroundColor = "#90ee90";
+				if(isCorrect){
+					
 				}else{
-				square.style.backgroundColor = "#FF474C";
-				}
-			})
+
+				};
+
+				document.querySelectorAll(".answerSquare").forEach(square => {
+
+					if(quiz[questionTracker].correctValues.includes(square.textContent)){
+					square.style.backgroundColor = "#90ee90";
+					}else{
+					square.style.backgroundColor = "#FF474C";
+					}
+				})
 
 
-			setTimeout(() => {
-				console.log("3 seconds passed! Doing the action now.");
-				alert("Action executed!");
-				questionTracker++
-				mainTag.innerHTML = "";
+				setTimeout(() => {
+					console.log("3 seconds passed! Doing the action now.");
+					questionTracker++
+					mainTag.innerHTML = "";
+					game(quiz);
 
-
-				game(quiz);
-
-			}, 2000);
-
-	    });
-	});
-
-
-
-	
-
+				}, 1000);
+			});
+		});
+	}else{
+		alert("No more questions")
+	}
 }
+
 
 function shuffle(quiz){
     const shuffledQuestions = fisherYatesShuffle(quiz);
