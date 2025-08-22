@@ -2,23 +2,10 @@ let quizIndex = localStorage.getItem("playSelectedQuiz")
 localStorage.removeItem("playSelectedQuiz");
 let questionTracker = 0;
 
-let quizzes = JSON.parse(localStorage.getItem('quizzes'));
+let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 let quiz = quizzes[quizIndex];
-
-
-// SHUFFLE FUNKAR INTE, ALERT SHUFFLE FUNKAR INTE!!!!!
-// Den shufflar alla svar men PGA hur jag printar ur det,
-//  så kommer correct alltid vara det sista alternativet.
-
-// För att lösa detta antingen shuffla alla i EN array,
-//  så correctAnswer kan ligga bara random i mitten.
-
-// Eller randomiza hur den printar ut svaren i spelet.
-
-
-
-function game(quiz){
     quiz = shuffle(quiz);
+function game(quiz){
     console.log("Game has started!");
     console.log(quiz)
 
@@ -61,12 +48,12 @@ document.querySelectorAll(".answerSquare").forEach(square => {
 	square.addEventListener("click", function() {
 	const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
       	square.textContent == correctAnswer
-	);
+		);
 
 			if(isCorrect){
-				alert("You pressed the correct answer");
+				
 			}else{
-				alert("You pressed the wrong answer");
+
 			};
 
 			document.querySelectorAll(".answerSquare").forEach(square => {
@@ -78,12 +65,25 @@ document.querySelectorAll(".answerSquare").forEach(square => {
 				}
 			})
 
+
+			setTimeout(() => {
+				console.log("3 seconds passed! Doing the action now.");
+				alert("Action executed!");
+				questionTracker++
+				mainTag.innerHTML = "";
+
+
+				game(quiz);
+
+			}, 2000);
+
+	    });
 	});
-});
 
 
 
-	console.log("Am I in loop??");
+	
+
 }
 
 function shuffle(quiz){
