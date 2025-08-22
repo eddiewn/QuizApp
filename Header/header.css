@@ -1,7 +1,7 @@
 #headerBackground{
     background-color: #5577cc ;
     width: 100%;
-    height: 5em;
+    height: 5rem;
 }
 
 .navButtons{
@@ -16,7 +16,7 @@ nav a{
     color: black;
     margin-right: 20px;
     margin-left: 20px;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-decoration: none;
     transition: 0.15s;
 

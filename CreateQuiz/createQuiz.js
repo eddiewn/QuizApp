@@ -6,7 +6,6 @@ let fillerParent = document.getElementById("fillerAnswerDiv");
 let getFiller = document.getElementById("addFillerAnswerButton");
 let getCorrect = document.getElementById("addCorrectAnswerButton");
 
-
 getFiller.addEventListener("click", () => {
     const newInput =  document.createElement("INPUT");
     newInput.className = "fillerAnswer";
@@ -23,11 +22,7 @@ getCorrect.addEventListener("click", () => {
 
 let getSubmitButton = document.getElementById("submitQuestionButton");
 
-
-
 getSubmitButton.addEventListener("click", () => {
-
-
     let question = document.getElementById("question");
     let actualQuestion = question.value;
 
@@ -41,8 +36,6 @@ getSubmitButton.addEventListener("click", () => {
         alert("You are missing to fill inputs")
         return;
     }else{
-
-    
 
     let fillerArray = [];
     fillerInputs.forEach(input => {
@@ -63,15 +56,10 @@ getSubmitButton.addEventListener("click", () => {
     quizArray.push(questionObject);
     console.log(quizArray);
 
-
     addQuestion(quizArray);
     cleanInputs(question, fillerInputs, correctInputs);
     }
-
-
-
 });
-
 
 let scuffedCounter = 0;
 function addQuestion(quizArray){
@@ -98,8 +86,6 @@ getCompleteQuizButton.addEventListener("click", () => {
     localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
     document.querySelector(".previewQuestionDiv").innerHTML = "";
-
-
 });
 
 function cleanInputs(question, filler, correct){
@@ -113,6 +99,4 @@ function cleanInputs(question, filler, correct){
 
     [...filler].slice(1).forEach(input => input.remove());
     [...correct].slice(1).forEach(input => input.remove());
-
-
 }

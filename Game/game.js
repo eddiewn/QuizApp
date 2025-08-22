@@ -21,26 +21,32 @@ function game(quiz){
 	let answerDiv = document.createElement("div");
 	answerDiv.id = "answerDiv"
 
-
 	questionP.innerText = quiz[questionTracker].question;
 
 	questionDiv.appendChild(questionP);
 	mainTag.appendChild(questionDiv);
 
-		allAnswers(quiz).forEach(answer => {
+	let answerContainer = document.createElement("div");
+	answerContainer.id = "answerContainer";
+
+	allAnswers(quiz).forEach(answer => {
 		let answerSquare = document.createElement("div");
 		answerSquare.className = "answerSquare";
-		
+	
 		let answerSquareP = document.createElement("p");
 		answerSquareP.innerText = answer;
 
-		answerSquare.appendChild(answerSquareP)
-		mainTag.appendChild(answerSquare);
+		answerSquare.appendChild(answerSquareP);
+		answerContainer.appendChild(answerSquare);
 	});
+
+	mainTag.appendChild(answerContainer);
 
 
 	console.log("AM i in loop???");
 	console.log("answer: no");
+
+
 }
 
 function shuffle(quiz){

@@ -1,7 +1,29 @@
 #questionDiv{
     width: 100%;
-    height: 20%;
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3em;
+}
+
+#questionDiv p{
+    font-size: 3em;
+}
+
+#answerContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.answerSquare{
+    display: flex;
+    justify-content: center;
+    width: 35%;
+    margin-bottom: 1em;
+    background-color: greenyellow;
+    border-radius: 1em;
 }
