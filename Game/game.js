@@ -1,17 +1,21 @@
 let quizIndex = localStorage.getItem("playSelectedQuiz")
 localStorage.removeItem("playSelectedQuiz");
+
+let mainTag = document.querySelector("main")
+
+
 let questionTracker = 0;
 
 let quizzes = JSON.parse(localStorage.getItem("quizzes"));
+
 let quiz = quizzes[quizIndex];
-    quiz = shuffle(quiz);
-	console.log(quiz.question)
+quiz = shuffle(quiz);
+
 function game(quiz){
 	if(questionTracker != quiz.length){
 		console.log("Game has started!");
 		console.log(quiz)
 
-		let mainTag = document.querySelector("main")
 
 		let questionDiv = document.createElement("div");
 		questionDiv.id = "questionDiv";
@@ -69,7 +73,6 @@ function game(quiz){
 
 
 				setTimeout(() => {
-					console.log("3 seconds passed! Doing the action now.");
 					questionTracker++
 					mainTag.innerHTML = "";
 					game(quiz);
@@ -78,7 +81,14 @@ function game(quiz){
 			});
 		});
 	}else{
-		alert("No more questions")
+		const endScreenDiv = document.createElement("div")
+		endScreenDiv.id = "endScreenDiv";
+		
+		const contentTest = document.createElement("h1");
+		contentTest.textContent = "This is end page"
+
+		endScreenDiv.appendChild(contentTest);
+		mainTag.appendChild(endScreenDiv);
 	}
 }
 

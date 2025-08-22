@@ -19,7 +19,7 @@ savedQuizzes.forEach((quizArray, quizIndex) => {
     playButton.className = "playQuiz";
     playButton.id = `playButtonFor${quizIndex}`;
 
-    quizHeader.textContent = "Quiz: " + (Number(quizIndex + 1));
+    quizHeader.textContent = "Quiz: " + (Number(quizIndex));
 
     const removeButton = document.createElement("button");
     removeButton.innerText = "Delete";
