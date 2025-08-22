@@ -3,6 +3,7 @@ localStorage.removeItem("playSelectedQuiz");
 
 let mainTag = document.querySelector("main")
 
+let playerAnswers = [];
 
 let questionTracker = 0;
 
@@ -55,6 +56,7 @@ function game(quiz){
 		const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
 			square.textContent == correctAnswer
 			);
+				playerAnswers.push(square.textContent)
 
 				if(isCorrect){
 					
@@ -89,6 +91,11 @@ function game(quiz){
 
 		endScreenDiv.appendChild(contentTest);
 		mainTag.appendChild(endScreenDiv);
+
+		//Printa ut frågan + vad spelaren svara
+		// array.forEach(element => {
+			
+		// });
 	}
 }
 
