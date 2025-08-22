@@ -41,7 +41,10 @@ function game(quiz){
 	let answerContainer = document.createElement("div");
 	answerContainer.id = "answerContainer";
 
-	allAnswers(quiz).forEach(answer => {
+	const randomizedAnswers = fisherYatesShuffle(allAnswers(quiz));
+
+	randomizedAnswers.forEach(answer => {
+		console.log(answer);
 		let answerSquare = document.createElement("div");
 		answerSquare.className = "answerSquare";
 	
