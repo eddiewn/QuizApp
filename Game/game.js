@@ -72,11 +72,10 @@ document.querySelectorAll(".answerSquare").forEach(square => {
 			document.querySelectorAll(".answerSquare").forEach(square => {
 
 				if(quiz[questionTracker].correctValues.includes(square.textContent)){
-				square.style.backgroundColor = "green";
+				square.style.backgroundColor = "#90ee90";
 				}else{
-				square.style.backgroundColor = "red";
+				square.style.backgroundColor = "#FF474C";
 				}
-
 			})
 
 	});
