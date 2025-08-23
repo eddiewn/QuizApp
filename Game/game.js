@@ -17,6 +17,10 @@ quiz = shuffle(quiz);
 // Så räknas fillerValue som ett korrekt val, vilket det borde vara. Kanske inte är något concern.
 // Borde kolla specifikt ID istället för content på svar. yikes
 
+// Bug numero dos
+// Du kan spamma ett svar för att generera multiple skip timers för att insta skippa quizen och
+// förstöra hela spslet
+
 function game(quiz){
 	if(questionTracker != quiz.length){
 		
