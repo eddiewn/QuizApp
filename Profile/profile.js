@@ -1,47 +1,44 @@
 let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-
+let mainTag = document.querySelector("main")
 
 function loadQuizzes(){
-    let mainTag = document.querySelector("main")
     mainTag.innerHTML = ""; 
 
     const parentDiv = document.createElement("div")
     parentDiv.id = "displayQuizDiv";
-savedQuizzes.forEach((quizArray, quizIndex) => {
+    savedQuizzes.forEach((quizArray, quizIndex) => {
 
+        mainTag.appendChild(parentDiv);
 
+        const singularQuizDiv = document.createElement("div");
+        singularQuizDiv.className = "singularQuizDiv";
 
-    mainTag.appendChild(parentDiv);
+        const quizHeader = document.createElement("h2");
+        const playButton = document.createElement("button");
 
-    const singularQuizDiv = document.createElement("div");
-    singularQuizDiv.className = "singularQuizDiv";
+        playButton.innerText = "Play Quiz!"
+        playButton.className = "playQuiz";
+        playButton.id = `playButtonFor${quizIndex}`;
 
-    const quizHeader = document.createElement("h2");
-    const playButton = document.createElement("button");
+        quizHeader.textContent = "Quiz: " + (Number(quizIndex));
 
-    playButton.innerText = "Play Quiz!"
-    playButton.className = "playQuiz";
-    playButton.id = `playButtonFor${quizIndex}`;
+        const removeButton = document.createElement("button");
+        removeButton.innerText = "Delete";
+        removeButton.className = "removeQuiz";
+        removeButton.id = `buttonForQuiz${quizIndex}`;
 
-    quizHeader.textContent = "Quiz: " + (Number(quizIndex));
+        singularQuizDiv.appendChild(quizHeader);
+        singularQuizDiv.appendChild(playButton);
+        singularQuizDiv.appendChild(removeButton);
 
-    const removeButton = document.createElement("button");
-    removeButton.innerText = "Delete";
-    removeButton.className = "removeQuiz";
-    removeButton.id = `buttonForQuiz${quizIndex}`;
+        quizArray.forEach((questionObj, questionIndex) => {
+            const displayQuiz = document.createElement("P");
+            displayQuiz.textContent = "Question: " + questionObj.question + " Filler Answer: " + questionObj.fillerValues + " Correct Answer: " + questionObj.correctValues;
 
-    singularQuizDiv.appendChild(quizHeader);
-    singularQuizDiv.appendChild(playButton);
-    singularQuizDiv.appendChild(removeButton);
-
-    quizArray.forEach((questionObj, questionIndex) => {
-        const displayQuiz = document.createElement("P");
-        displayQuiz.textContent = "Question: " + questionObj.question + " Filler Answer: " + questionObj.fillerValues + " Correct Answer: " + questionObj.correctValues;
-
-        singularQuizDiv.appendChild(displayQuiz);
-        parentDiv.appendChild(singularQuizDiv);
+            singularQuizDiv.appendChild(displayQuiz);
+            parentDiv.appendChild(singularQuizDiv);
+        });
     });
-});
 }
 
 document.addEventListener('click', (event) => {
@@ -62,8 +59,12 @@ document.addEventListener('click', (event) => {
     
     if (event.target.classList.contains("playQuiz")){
         localStorage.setItem("playSelectedQuiz", quizIndex);
-        window.location.href="../Game/game.html";
+        deloadAnimation("../Game/game.html");
     }
 });
 
 loadQuizzes();
+
+window.addEventListener("load",() =>{
+    loadAnimation();
+})

@@ -8,5 +8,19 @@ h2 {
     margin: 0;
 }
 
+.spotlight {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    --r: 0px;          
+    --x: 50%;             
+    --y: 50%;             
+    --dim: rgba(0,0,0,1);
 
+    background: radial-gradient(
+        circle var(--r) at var(--x) var(--y),
+        transparent 98%,
+        var(--dim) 100%
+    );
+}
 

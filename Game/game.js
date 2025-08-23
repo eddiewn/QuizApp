@@ -12,7 +12,7 @@ let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 let quiz = quizzes[quizIndex];
 quiz = shuffle(quiz);
 
-// Bug hittad
+// "Bug" hittad
 // Om "fillerValue" är samma som "correctValue" (även fast det är dumt)
 // Så räknas fillerValue som ett korrekt val, vilket det borde vara. Kanske inte är något concern.
 // Borde kolla specifikt ID istället för content på svar. yikes
@@ -169,3 +169,7 @@ function allAnswers(quiz){
 }
 
 game(quiz);
+
+window.addEventListener("load",() =>{
+    loadAnimation();
+})

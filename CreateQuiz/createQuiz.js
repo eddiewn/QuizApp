@@ -6,6 +6,8 @@ let fillerParent = document.getElementById("fillerAnswerDiv");
 let getFiller = document.getElementById("addFillerAnswerButton");
 let getCorrect = document.getElementById("addCorrectAnswerButton");
 
+const mainTag = document.querySelector("main")
+
 getFiller.addEventListener("click", () => {
     const newInput =  document.createElement("INPUT");
     newInput.className = "fillerAnswer";
@@ -102,19 +104,5 @@ function cleanInputs(question, filler, correct){
 }
 
 window.addEventListener("load",() =>{
-
-    const circle = document.querySelector(".spotlight");
-    let growRadius = 0;
-    function loadAnimation(){
-        growRadius = growRadius + 30;
-        circle.style.setProperty("--r", growRadius + "px");
-
-        if (growRadius < 1000) {
-            requestAnimationFrame(loadAnimation);
-        }else{
-            circle.remove();
-        }
-}
-
-    requestAnimationFrame(loadAnimation);
+    loadAnimation();
 })

@@ -1,0 +1,30 @@
+    let growRadius = 0;
+    const circle = document.querySelector(".spotlight");
+
+    function loadAnimation(){
+        growRadius = growRadius + 30;
+        circle.style.setProperty("--r", growRadius + "px");
+
+        if (growRadius < 1000) {
+            requestAnimationFrame(loadAnimation);
+        }else{
+            circle.remove();
+        }
+    }
+
+    let shrinkRadius = 1000;
+    function deloadAnimation(nextUrl){
+    const circle = document.createElement("div");
+        circle.classList.add("spotlight");
+        mainTag.appendChild(circle);
+        circle.style.setProperty("--r", 1000 + "px");
+
+        shrinkRadius = shrinkRadius - 20;
+        circle.style.setProperty("--r", shrinkRadius + "px");
+
+        if (shrinkRadius > 0) {
+            requestAnimationFrame(() => deloadAnimation(nextUrl)); 
+        }else{
+            window.location.href=nextUrl
+        }
+    }

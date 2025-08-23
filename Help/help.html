@@ -11,10 +11,17 @@
 </head>
 <body>
         <re-use-header></re-use-header>
-
+    <main>
         <h1>Help Page</h1>
         <p>Click "Create Quiz" to start making your quiz<p>
-
-        
+    </main>
+    <div class="spotlight"></div>
+    <script src="../script.js"></script>
+    <script>
+        const mainTag = document.querySelector("main"); 
+        window.addEventListener("load",() =>{
+        loadAnimation();
+        })
+    </script>
 </body>
 </html>

@@ -5,17 +5,25 @@ class reUseHeaderTest extends HTMLElement{
             <header>
                 <div id="headerBackground">
                     <nav class="navButtons">
-                        <a class="navButton" id="homeButton" href="/index.html">Home</a>
-                        <a class="navButton" id="helpButton" href="/Help/help.html">Help</a>
-                        <a class="navButton" id="createQuizButton" href="/preCreateQuiz/preCreateQuiz.html">Create Quiz</a>
-                        <a class="navButton" id="profileButton" href="/Profile/profile.html">Profile</a>
+                        <a class="navButton" data-url="/index.html">Home</a>
+                        <a class="navButton" data-url="/Help/help.html">Help</a>
+                        <a class="navButton" data-url="/preCreateQuiz/preCreateQuiz.html">Create Quiz</a>
+                        <a class="navButton" data-url="/Profile/profile.html">Profile</a>
                     </nav>
                 </div>
             </header>
         `;
+
+        const navButtons = this.querySelectorAll(".navButton");
+        navButtons.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const targetUrl = btn.dataset.url;
+                deloadAnimation(targetUrl);
+            });
+        });
     }
 }    
-    
 
 
 customElements.define('re-use-header', reUseHeaderTest);
