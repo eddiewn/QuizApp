@@ -96,19 +96,15 @@ function createGameDisplay(){
 }
 
 function createProgressBar(){
-	const nextQuestion = document.createElement("h1")
 	const progressContainer = document.createElement("div");
 	const progressBar = document.createElement("div");
 	const progress = document.createElement("div");
 				
-	nextQuestion.id = "nextQuestion";
-	nextQuestion.textContent = "Next question coming soon";
 	progressContainer.id = "progressContainer";
 	progressBar.id = "progressBar";
 	progress.id = "progress";
 
 	progressBar.appendChild(progress);
-	progressContainer.appendChild(nextQuestion);
 	progressContainer.appendChild(progressBar);
 	mainTag.appendChild(progressContainer);
 	let increaseWidth = 0;
