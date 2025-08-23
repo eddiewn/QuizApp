@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Preparing Quiz</title>
+
+    <link rel="stylesheet" href="preCreateQuiz.css">
+    <link rel="stylesheet" href="../Header/header.css">
+    <link rel="stylesheet" href="../main.css">
+    <script src="../Header/header.js" defer></script>
 </head>
 <body>
-    <p>This is basically "name the quiz, description of the quiz etc"</p>
+    <re-use-header></re-use-header>
+    
+    <main>
+        <section>
+            <h1>Preparing Quiz</h1>
+            <p>Quiz Name:</p>
+            <input type="text" id="quizName">
+            <p>Quiz Description</p>
+            <input type="text" id="quizDescription">
+            <br>
+            <button id="continueButton">
+                Continue
+            </button>
+        </section>
+    </main>
+
+    <div class="spotlight">
+
+    </div>
+
+    <script src="preCreateQuiz.js"></script>
 </body>
 </html>

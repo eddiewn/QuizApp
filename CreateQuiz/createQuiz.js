@@ -100,3 +100,21 @@ function cleanInputs(question, filler, correct){
     [...filler].slice(1).forEach(input => input.remove());
     [...correct].slice(1).forEach(input => input.remove());
 }
+
+window.addEventListener("load",() =>{
+
+    const circle = document.querySelector(".spotlight");
+    let growRadius = 0;
+    function loadAnimation(){
+        growRadius = growRadius + 30;
+        circle.style.setProperty("--r", growRadius + "px");
+
+        if (growRadius < 1000) {
+            requestAnimationFrame(loadAnimation);
+        }else{
+            circle.remove();
+        }
+}
+
+    requestAnimationFrame(loadAnimation);
+})
