@@ -25,7 +25,7 @@
     justify-content: center;
     width: 35%;
     margin-bottom: 1em;
-    background-color: greenyellow;
+    background-color: #78CDD7;
     border-radius: 1em;
     border: 0.1em solid black;
     height: auto;
@@ -41,11 +41,10 @@
     margin-top: 4rem;
 }
 
-
 #progressBar{
     width: 30%;
     height: 3vh;
-    background-color: lightgreen;
+    background-color: #78CDD7;
     border-radius: 20px;
     border: 2px solid black;
 }
@@ -54,7 +53,7 @@
     height: 100%;
     width: 0%;
     align-self: start;
-    background-color: red;
+    background-color: #0D5C63;
     border-radius: 20px;
 
 }

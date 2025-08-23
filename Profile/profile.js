@@ -4,14 +4,18 @@ let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 function loadQuizzes(){
     let mainTag = document.querySelector("main")
     mainTag.innerHTML = ""; 
-savedQuizzes.forEach((quizArray, quizIndex) => {
 
     const parentDiv = document.createElement("div")
     parentDiv.id = "displayQuizDiv";
+savedQuizzes.forEach((quizArray, quizIndex) => {
+
+
 
     mainTag.appendChild(parentDiv);
 
     const singularQuizDiv = document.createElement("div");
+    singularQuizDiv.className = "singularQuizDiv";
+
     const quizHeader = document.createElement("h2");
     const playButton = document.createElement("button");
 
