@@ -1,8 +1,10 @@
-const [navEntry] = performance.getEntriesByType("navigation");
+window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+        location.reload();
+    }
 
-if (navEntry && navEntry.type === "back_forward") {
-    location.reload();
-}
+    loadAnimation();
+});
 
 
 let growRadius = 0;
