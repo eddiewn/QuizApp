@@ -4,19 +4,19 @@ let mainTag = document.querySelector("main")
 function loadQuizzes(){
     mainTag.innerHTML = ""; 
 
-    const parentDiv = document.createElement("div")
-    parentDiv.id = "displayQuizDiv";
+    const quizzesSection = document.createElement("section")
+    quizzesSection.id = "displayQuizDiv";
     savedQuizzes.forEach((quizArray, quizIndex) => {
 
-        mainTag.appendChild(parentDiv);
+        mainTag.appendChild(quizzesSection);
 
-        const singularQuizDiv = document.createElement("div");
-        singularQuizDiv.className = "singularQuizDiv";
+        const quizArticle = document.createElement("article");
+        quizArticle.className = "quizArticle";
 
         const quizHeader = document.createElement("h2");
         const quizDescription = document.createElement("p");
         quizHeader.textContent = `Quiz: ${quizArray[0].quizName}`;
-        quizDescription.textContent = `Quiz: ${quizArray[0].quizDescription}`
+        quizDescription.textContent = `Description ${quizArray[0].quizDescription}`
 
         const playButton = document.createElement("button");
         playButton.innerText = "Play Quiz!"
@@ -33,19 +33,18 @@ function loadQuizzes(){
         removeButton.className = "removeQuiz";
         removeButton.id = `buttonForQuiz${quizIndex}`;
 
-        singularQuizDiv.appendChild(quizHeader);
-        singularQuizDiv.appendChild(quizDescription);
+        quizArticle.appendChild(quizHeader);
+        quizArticle.appendChild(quizDescription);
 
-        singularQuizDiv.appendChild(playButton);
-        singularQuizDiv.appendChild(editButton);
-        singularQuizDiv.appendChild(removeButton);
+        quizArticle.appendChild(playButton);
+        quizArticle.appendChild(editButton);
+        quizArticle.appendChild(removeButton);
 
-        quizArray.forEach((questionObj, questionIndex) => {
+        quizArray.forEach(() => {
             const displayQuiz = document.createElement("P");
-            displayQuiz.textContent = "Question: " + questionObj.question + " Filler Answer: " + questionObj.fillerValues + " Correct Answer: " + questionObj.correctValues;
 
-            singularQuizDiv.appendChild(displayQuiz);
-            parentDiv.appendChild(singularQuizDiv);
+            quizArticle.appendChild(displayQuiz);
+            quizzesSection.appendChild(quizArticle);
         });
     });
 }
