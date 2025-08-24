@@ -16,7 +16,7 @@
     function deloadAnimation(nextUrl){
     const circle = document.createElement("div");
         circle.classList.add("spotlight");
-        mainTag.appendChild(circle);
+        document.body.appendChild(circle);
         circle.style.setProperty("--r", 1000 + "px");
 
         shrinkRadius = shrinkRadius - 40;
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("headerBackground");
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
         header.classList.add("scrolled");
         setTimeout(() => {
             header.classList.add("wait");
