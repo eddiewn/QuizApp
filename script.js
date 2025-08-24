@@ -1,74 +1,50 @@
     let growRadius = 0;
-    let shrinkRadius = 1000;
-    let rafId = null;
+    const circle = document.querySelector(".spotlight");
 
-    function ensureSpotlight() {
-    let circle = document.querySelector(".spotlight");
-    if (!circle) {
-        circle = document.createElement("div");
+    function loadAnimation(){
+        growRadius = growRadius + 50;
+        circle.style.setProperty("--r", growRadius + "px");
+
+        if (growRadius < 1000) {
+            requestAnimationFrame(loadAnimation);
+        }else{
+            circle.remove();
+        }
+    }
+
+    let shrinkRadius = 1000;
+    function deloadAnimation(nextUrl){
+    const circle = document.createElement("div");
         circle.classList.add("spotlight");
         mainTag.appendChild(circle);
-    }
-    return circle;
-    }
+        circle.style.setProperty("--r", 1000 + "px");
 
-    function loadAnimation() {
-    const circle = ensureSpotlight();
-    circle.style.setProperty("--r", `${growRadius}px`);
-    growRadius += 50;
+        shrinkRadius = shrinkRadius - 40;
+        circle.style.setProperty("--r", shrinkRadius + "px");
 
-    if (growRadius < 1000) {
-        rafId = requestAnimationFrame(loadAnimation);
-    } else {
-        circle.remove();
-        rafId = null;
-    }
+        if (shrinkRadius > 0) {
+            requestAnimationFrame(() => deloadAnimation(nextUrl)); 
+        }else{
+            window.location.href=nextUrl
+        }
     }
 
-    function deloadAnimation(nextUrl) {
-    const circle = ensureSpotlight();
-
-    if (shrinkRadius === 1000) {
-        circle.style.setProperty("--r", "1000px");
-    }
-
-    shrinkRadius -= 40;
-    circle.style.setProperty("--r", `${shrinkRadius}px`);
-
-    if (shrinkRadius > 0) {
-        rafId = requestAnimationFrame(() => deloadAnimation(nextUrl));
-    } else {
-        window.location.href = nextUrl;
-    }
-    }
-
-    window.addEventListener("pageshow", (event) => {
-    if (event.persisted) {
-        if (rafId) cancelAnimationFrame(rafId);
-        growRadius = 0;
-        shrinkRadius = 1000;
-        const circle = ensureSpotlight();
-        circle.style.setProperty("--r", "0px");
-    }
-    });
-
-    window.addEventListener("pagehide", () => {
-    if (rafId) cancelAnimationFrame(rafId);
-    growRadius = 0;
-    shrinkRadius = 1000;
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-    loadAnimation();
-
+document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("headerBackground");
+
     window.addEventListener("scroll", () => {
         if (window.scrollY > 100) {
         header.classList.add("scrolled");
-        setTimeout(() => header.classList.add("wait"), 50);
+        setTimeout(() => {
+            header.classList.add("wait");
+        },50);
+
         } else {
         header.classList.remove("scrolled");
-        setTimeout(() => header.classList.remove("wait"), 50);
+        setTimeout(() => {
+            header.classList.remove("wait");
+        },50);
+
         }
     });
-    });
+});
