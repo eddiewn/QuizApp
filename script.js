@@ -1,11 +1,13 @@
 let growRadius = 0;
-const circle = document.querySelector(".spotlight");
 
 window.addEventListener("pageshow", (event) => {
     if (event.persisted) {
+        const circle = document.createElement("div");
 
         growRadius = 0;
         shrinkRadius = 1000;
+        circle.style.setProperty("--r", "0px");
+
         if (!document.querySelector(".spotlight")) {
             const circle = document.createElement("div");
             circle.classList.add("spotlight");
@@ -30,7 +32,6 @@ window.addEventListener("pageshow", (event) => {
     let shrinkRadius = 1000;
     function deloadAnimation(nextUrl){
     const circle = ensureSpotlight();
-        circle.classList.add("spotlight");
         mainTag.appendChild(circle);
         circle.style.setProperty("--r", 1000 + "px");
 
@@ -70,13 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function ensureSpotlight() {
-  let circle = document.querySelector(".spotlight");
-  if (!circle) {
-    circle = document.createElement("div");
-    circle.classList.add("spotlight");
-    mainTag.appendChild(circle);
-  }
-  return circle;
+    let circle = document.querySelector(".spotlight");
+    if (!circle) {
+        circle = document.createElement("div");
+        circle.classList.add("spotlight");
+        mainTag.appendChild(circle);
+    }
+    return circle;
 }
 
 

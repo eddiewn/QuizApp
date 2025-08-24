@@ -28,7 +28,7 @@ main{
     background: radial-gradient(
         circle var(--r) at var(--x) var(--y),
         transparent 98%,
-        var(--dim) 100%,
+        var(--dim) 100%
     );
 }
 
