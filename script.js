@@ -28,3 +28,23 @@
             window.location.href=nextUrl
         }
     }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("headerBackground");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+        setTimeout(() => {
+            header.classList.add("wait");
+        },50);
+
+        } else {
+        header.classList.remove("scrolled");
+        setTimeout(() => {
+            header.classList.remove("wait");
+        },50);
+
+        }
+    });
+});

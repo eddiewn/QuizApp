@@ -11,9 +11,7 @@ continueButton.addEventListener("click", () => {
     }else{
         sessionStorage.setItem("quizName", quizName.value);
         sessionStorage.setItem("quizDescription", quizDescription.value);
-
-
-
+        
         deloadAnimation("../CreateQuiz/createQuiz.html");
     }
 })

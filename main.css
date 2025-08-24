@@ -1,11 +1,18 @@
 body{
+    background: #ffddff;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFA;
+    color: #D6DEC3;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-size: 100% auto;
 }
 
 h2 {
     margin: 0;
+}
+
+main{
+    height: 5000px;
 }
 
 .spotlight {
@@ -15,7 +22,7 @@ h2 {
     --r: 0px;          
     --x: 50%;             
     --y: 50%;             
-    --dim: rgba(13,92,99);
+    --dim: rgb(54, 0, 59);
 
     background: radial-gradient(
         circle var(--r) at var(--x) var(--y),
