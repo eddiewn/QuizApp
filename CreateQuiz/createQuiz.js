@@ -6,7 +6,16 @@ let fillerParent = document.getElementById("fillerAnswerDiv");
 let getFiller = document.getElementById("addFillerAnswerButton");
 let getCorrect = document.getElementById("addCorrectAnswerButton");
 
-const mainTag = document.querySelector("main")
+const mainTag = document.querySelector("main");
+
+const quizName = sessionStorage.getItem("quizName");
+const quizDescription = sessionStorage.getItem("quizDescription");
+
+console.log(`Quiz Name: ${quizName} | Quiz Description: ${quizDescription}`)
+
+
+const quizNameText = document.createElement("p");
+quizNameText.textContent = quizName;
 
 getFiller.addEventListener("click", () => {
     const newInput =  document.createElement("INPUT");
@@ -50,6 +59,8 @@ getSubmitButton.addEventListener("click", () => {
     });
 
     let questionObject = {
+        quizName: quizName,
+        quizDescription: quizDescription,
         question: actualQuestion,
         fillerValues: fillerArray,
         correctValues: correctArray,

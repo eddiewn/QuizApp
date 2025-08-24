@@ -1,10 +1,11 @@
 body{
-    background: #ffddff;
+    background: #011615;
     margin: 0;
     padding: 0;
     color: #D6DEC3;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-size: 100% auto;
+    padding-top: 7rem;
 }
 
 h2 {
@@ -22,7 +23,7 @@ main{
     --r: 0px;          
     --x: 50%;             
     --y: 50%;             
-    --dim: rgb(54, 0, 59);
+    --dim: rgb(0, 18, 13);
 
     background: radial-gradient(
         circle var(--r) at var(--x) var(--y),

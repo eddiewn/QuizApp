@@ -2,7 +2,7 @@
     const circle = document.querySelector(".spotlight");
 
     function loadAnimation(){
-        growRadius = growRadius + 30;
+        growRadius = growRadius + 50;
         circle.style.setProperty("--r", growRadius + "px");
 
         if (growRadius < 1000) {
@@ -19,7 +19,7 @@
         mainTag.appendChild(circle);
         circle.style.setProperty("--r", 1000 + "px");
 
-        shrinkRadius = shrinkRadius - 20;
+        shrinkRadius = shrinkRadius - 40;
         circle.style.setProperty("--r", shrinkRadius + "px");
 
         if (shrinkRadius > 0) {
@@ -48,3 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+

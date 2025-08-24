@@ -14,21 +14,30 @@ function loadQuizzes(){
         singularQuizDiv.className = "singularQuizDiv";
 
         const quizHeader = document.createElement("h2");
-        const playButton = document.createElement("button");
+        const quizDescription = document.createElement("p");
+        quizHeader.textContent = `Quiz: ${quizArray[0].quizName}`;
+        quizDescription.textContent = `Quiz: ${quizArray[0].quizDescription}`
 
+        const playButton = document.createElement("button");
         playButton.innerText = "Play Quiz!"
         playButton.className = "playQuiz";
         playButton.id = `playButtonFor${quizIndex}`;
 
-        quizHeader.textContent = "Quiz: " + (Number(quizIndex));
+        const editButton = document.createElement("button");
+        editButton.innerText = "Edit Quiz";
+        editButton.className = "editQuiz";
+        editButton.id = `editButtonFor${quizIndex}`
 
         const removeButton = document.createElement("button");
-        removeButton.innerText = "Delete";
+        removeButton.innerText = "Remove Quiz";
         removeButton.className = "removeQuiz";
         removeButton.id = `buttonForQuiz${quizIndex}`;
 
         singularQuizDiv.appendChild(quizHeader);
+        singularQuizDiv.appendChild(quizDescription);
+
         singularQuizDiv.appendChild(playButton);
+        singularQuizDiv.appendChild(editButton);
         singularQuizDiv.appendChild(removeButton);
 
         quizArray.forEach((questionObj, questionIndex) => {
@@ -43,24 +52,30 @@ function loadQuizzes(){
 
 document.addEventListener('click', (event) => {
     let quizIndex = event.target.id.slice(-1);
-
-  if (event.target.classList.contains("removeQuiz")) {
-    quizIndex = parseInt(quizIndex);
-
-    savedQuizzes = savedQuizzes.filter((_, i) => i !== quizIndex);
-
-    console.log(savedQuizzes);
-
-    localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
-
-    loadQuizzes();
-    }
-
-    
-    if (event.target.classList.contains("playQuiz")){
+    if(event.target.classList.contains("playQuiz")){
         localStorage.setItem("playSelectedQuiz", quizIndex);
         deloadAnimation("../Game/game.html");
     }
+
+    if(event.target.classList.contains("removeQuiz")) {
+        quizIndex = parseInt(quizIndex);
+
+        savedQuizzes = savedQuizzes.filter((_, i) => i !== quizIndex);
+
+        console.log(savedQuizzes);
+
+        localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
+
+        loadQuizzes();
+    }
+
+    if(event.target.classList.contains("editQuiz")){
+        sessionStorage.setItem("editNr", quizIndex)
+        deloadAnimation("../EditQuiz/editQuiz.html");
+    }
+
+    
+
 });
 
 loadQuizzes();

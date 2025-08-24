@@ -10,8 +10,7 @@ class reUseHeaderTest extends HTMLElement{
                         <a class="navButton" data-url="/Help/help.html">Help</a>
                         <a class="navButton" data-url="/preCreateQuiz/preCreateQuiz.html">Create Quiz</a>
                         <a class="navButton" data-url="/Profile/profile.html">Profile</a>
-                        <!-- Place this tag where you want the button to render. -->
-                        <a class="github-button" href="https://github.com/eddiewn" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Follow @eddiewn on GitHub">Follow @eddiewn</a>
+                        <a class="navButton github-button"  href="https://github.com/eddiewn" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Follow @eddiewn on GitHub">My Github</a>
                         <div>
                     </nav>
                 </div>
