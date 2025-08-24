@@ -1,7 +1,22 @@
-    let growRadius = 0;
-    const circle = document.querySelector(".spotlight");
+let growRadius = 0;
+const circle = document.querySelector(".spotlight");
+
+window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+
+        growRadius = 0;
+        shrinkRadius = 1000;
+        if (!document.querySelector(".spotlight")) {
+            const circle = document.createElement("div");
+            circle.classList.add("spotlight");
+            circle.style.setProperty("--r", "0px");
+            mainTag.appendChild(circle);
+        }
+    }
+});
 
     function loadAnimation(){
+        const circle = ensureSpotlight();
         growRadius = growRadius + 50;
         circle.style.setProperty("--r", growRadius + "px");
 
@@ -14,7 +29,7 @@
 
     let shrinkRadius = 1000;
     function deloadAnimation(nextUrl){
-    const circle = document.createElement("div");
+    const circle = ensureSpotlight();
         circle.classList.add("spotlight");
         mainTag.appendChild(circle);
         circle.style.setProperty("--r", 1000 + "px");
@@ -28,6 +43,11 @@
             window.location.href=nextUrl
         }
     }
+
+    window.addEventListener("beforeunload", () => {
+        growRadius = 0;
+        shrinkRadius = 1000;
+    });
 
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("headerBackground");
@@ -48,4 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function ensureSpotlight() {
+  let circle = document.querySelector(".spotlight");
+  if (!circle) {
+    circle = document.createElement("div");
+    circle.classList.add("spotlight");
+    mainTag.appendChild(circle);
+  }
+  return circle;
+}
+
+
 
