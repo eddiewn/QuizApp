@@ -80,5 +80,12 @@ document.addEventListener('click', (event) => {
 loadQuizzes();
 
 window.addEventListener("load",() =>{
+    const [navEntry] = performance.getEntriesByType("navigation");
+
+    if (navEntry && navEntry.type === "back_forward") {
+        location.reload();
+    }
+
+
     loadAnimation();
 })
