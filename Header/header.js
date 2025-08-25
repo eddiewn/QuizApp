@@ -3,15 +3,18 @@ class reUseHeaderTest extends HTMLElement{
         this.innerHTML=
         `
             <header id="header">
+            <div id="hamborgor">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
                 <div id="headerBackground">
                     <nav class="navButtons">
                         <a class="navButton" id="homeButton" data-url="/index.html">Home</a>
-                        <div id="rightButtons">
-                            <a class="navButton" data-url="/Help/help.html">Help</a>
-                            <a class="navButton" data-url="/preCreateQuiz/preCreateQuiz.html">Create Quiz</a>
-                            <a class="navButton" data-url="/Profile/profile.html">Profile</a>
-                            <a class="navButton github-button"  href="https://github.com/eddiewn" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Follow @eddiewn on GitHub">My Github</a>
-                        <div>
+                        <a class="navButton" data-url="/Help/help.html">Help</a>
+                        <a class="navButton" data-url="/preCreateQuiz/preCreateQuiz.html">Create Quiz</a>
+                        <a class="navButton" data-url="/Profile/profile.html">Profile</a>
+                        <a class="navButton github-button"  href="https://github.com/eddiewn" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Follow @eddiewn on GitHub">My Github</a>
                     </nav>
                 </div>
             </header>
@@ -25,6 +28,14 @@ class reUseHeaderTest extends HTMLElement{
                 deloadAnimation(targetUrl);
             });
         });
+
+        const hamborgor = document.getElementById("hamborgor");
+        const headerBackground = document.getElementById("headerBackground");
+        hamborgor.addEventListener("click", () =>{
+            hamborgor.classList.toggle("active");
+            headerBackground.classList.toggle("active")
+        })
+
     }
 }    
 

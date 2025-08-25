@@ -1,8 +1,116 @@
+/* Mobile-only styles */
+@media (max-width: 767px) {
+
+    
+header{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    background-color: rgb(0, 81, 255);
+}
+
+
+  /* #headerBackground {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    background-color: blue;
+
+  } */
+
+  #headerBackground{
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    background-color: blue;
+    position: fixed;
+    top: -100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+  #headerBackground.active{
+    top: 0;
+}
+
+  .navButtons {
+    flex-direction: column;
+    font-size: 3rem;
+    align-items: center;
+  }
+
+
+#hamborgor{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 20px;
+    gap: 7px;
+    z-index: 1000000;
+}
+
+
+#hamborgor span:nth-child(1) {
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#hamborgor span:nth-child(2) {
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#hamborgor span:nth-child(3) {
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#hamborgor.active span:nth-child(1){
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#hamborgor.active span:nth-child(2){
+    
+}
+
+#hamborgor.active span:nth-child(3){
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+
+
+.navButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    font-size: 3rem;
+}
+}
 @media (min-width: 768px) {
 header{
     width: 100%;
-    position: fixed;
     top: 0;
+    position: fixed;
+
 }
 
 #headerBackground{
@@ -14,6 +122,7 @@ header{
     border-radius: 45px;
     transition: 0.3s;
     box-shadow: 0px 0px 20px 1px #02C3BD;
+    top: 0;
 }
 
 #headerBackground.scrolled{
@@ -43,12 +152,11 @@ margin: 0;
     justify-content: space-between;
     margin: 0 auto;
     font-size: 1.5em;
+    gap: 1.5em;
+    flex-direction: row;
+
 }
 
-#rightButtons{
-    display: flex;
-    gap: 2rem;
-}
 
 .navButtons a:nth-child(2){
     margin-left: auto;
