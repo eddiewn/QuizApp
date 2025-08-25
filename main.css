@@ -1,3 +1,4 @@
+
 body{
     background: #011615;
     margin: 0;
@@ -8,12 +9,13 @@ body{
     padding-top: 8rem;
 }
 
+
 h2 {
     margin: 0;
 }
 
 main{
-    height: 5000px;
+    height: 100%;
 }
 
 .spotlight {

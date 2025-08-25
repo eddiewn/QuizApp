@@ -32,7 +32,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
     box-shadow: 0px 0px 20px 1px #02C3BD;
 
 }
@@ -134,6 +134,7 @@ header{
     transition: 0.3s;
     box-shadow: 0px 0px 20px 1px #02C3BD;
     top: 0;
+
 }
 
 #headerBackground.scrolled{
