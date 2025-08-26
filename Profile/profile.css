@@ -1,0 +1,23 @@
+h1{
+    margin-left: 5%;
+}
+
+#displayQuizDiv{
+    margin: auto;
+    width: 90%;
+}
+
+.quizArticle{
+    background-color: blue;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+}
+
+#buttonDiv{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 768px) {
+
+}

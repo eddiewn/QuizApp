@@ -33,17 +33,19 @@ function loadQuizzes(){
         removeButton.className = "removeQuiz";
         removeButton.id = `buttonForQuiz${quizIndex}`;
 
+        const buttonDiv = document.createElement("div");
+        buttonDiv.id = "buttonDiv";
+
         quizArticle.appendChild(quizHeader);
         quizArticle.appendChild(quizDescription);
 
-        quizArticle.appendChild(playButton);
-        quizArticle.appendChild(editButton);
-        quizArticle.appendChild(removeButton);
+        buttonDiv.appendChild(playButton);
+        buttonDiv.appendChild(editButton);
+        buttonDiv.appendChild(removeButton);
+
+        quizArticle.appendChild(buttonDiv);
 
         quizArray.forEach(() => {
-            const displayQuiz = document.createElement("P");
-
-            quizArticle.appendChild(displayQuiz);
             quizzesSection.appendChild(quizArticle);
         });
     });
