@@ -1,13 +1,15 @@
 h1{
-    margin-left: 5%;
+    margin: 0;
+    padding: 0;
 }
+
 
 #displayQuizDiv{
     display: flex;
     flex-direction: column;
-    margin: auto;
     gap: 4rem;
     width: 90%;
+    margin: auto;
 }
 
 .quizArticle{
@@ -26,33 +28,49 @@ h1{
 }
 
 button {
-  background: transparent;
-  border: 2px solid #00ffc8;
-  border-radius: 25px;
-  color: #00ffc8;
-  padding: 8px 18px;
-  margin: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+    background: transparent;
+    border: 2px solid #00ffc8;
+    border-radius: 25px;
+    color: #00ffc8;
+    padding: 8px 18px;
+    margin: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-  background: #00ffc8;
-  color: #0d1b1e;
+    background: #00ffc8;
+    color: #0d1b1e;
 }
 
 @media (min-width: 768px) {
 
+    main{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    #headerText{
+        width: 100%;
+        height: 10vh;
+    }
+
     #displayQuizDiv{
-    align-items: flex-start;
-    margin: 0;
-    /* width: 40vw; */
+        align-items: flex-start;
+        margin: 0;
+        width: 40vw;
     }
 
     .quizArticle{
-        width: 40vw;
+        width: 100%;
         margin-left: 5%;
+    }
 
+    #pointlessTextDiv{
+        width: 50vw;
     }
 
 }
