@@ -2,10 +2,14 @@ let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 let mainTag = document.querySelector("main")
 
 function loadQuizzes(){
-    mainTag.innerHTML = ""; 
+const oldSection = document.getElementById("displayQuizDiv");
+    if (oldSection) {
+        oldSection.remove();
+    }
 
     const quizzesSection = document.createElement("section")
     quizzesSection.id = "displayQuizDiv";
+
     savedQuizzes.forEach((quizArray, quizIndex) => {
 
         mainTag.appendChild(quizzesSection);
