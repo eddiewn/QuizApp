@@ -9,6 +9,7 @@ h1{
     flex-direction: column;
     gap: 4rem;
     width: 90%;
+    margin: auto;
 }
 
 .quizArticle{

@@ -44,7 +44,6 @@ getSubmitButton.addEventListener("click", () => {
     let missingFiller = Array.from(fillerInputs).some(input => !input.value.trim())
     let missingCorrect = Array.from(correctInputs).some(input => !input.value.trim())
 
-
     if(missingFiller && missingCorrect){
         alert("You are missing to fill inputs")
         return;

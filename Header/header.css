@@ -41,62 +41,47 @@ header{
 
 
 #hamborgor{
-    display: flex;
     height: 100%;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-    padding-right: 20px;
-    gap: 7px;
-    z-index: 1000000;
-
+    width: 40px;
+    margin-left: auto;
+    position: relative;
+    z-index: 1000;
+    right: 5%;
 }
 
-
-#hamborgor span:nth-child(1) {
-    width: 50px;
-    height: 6px;
-    background: white;
-    border-radius: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
-    transition: .5s ease;
-
+#hamborgor span{
+    height: 5px;
+    width: 100%;
+    background-color: #D6DEC3;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
 }
 
-#hamborgor span:nth-child(2) {
-    width: 50px;
-    height: 6px;
-    background: white;
-    border-radius: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
-    transition: .5s ease;
-
+#hamborgor span:nth-child(1){
+    top: 35%;
 }
 
-#hamborgor span:nth-child(3) {
-    width: 50px;
-    height: 6px;
-    background: white;
-    border-radius: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
-    transition: .5s ease;
-
+#hamborgor span:nth-child(3){
+    top: 65%;
 }
+
 
 #hamborgor.active span:nth-child(1){
+    top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-
 }
 
 #hamborgor.active span:nth-child(2){
-    
+    opacity: 0;
 }
 
 #hamborgor.active span:nth-child(3){
-    transform: translate(-50%, 50%) rotate(-45deg);
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 
