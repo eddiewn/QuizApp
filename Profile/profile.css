@@ -9,7 +9,6 @@ h1{
     flex-direction: column;
     gap: 4rem;
     width: 90%;
-    margin: auto;
 }
 
 .quizArticle{
@@ -57,21 +56,18 @@ button:hover {
     #headerText{
         width: 100%;
         height: 10vh;
-    }
-
-    #displayQuizDiv{
-        align-items: flex-start;
-        margin: 0;
-        width: 40vw;
-    }
-
-    .quizArticle{
-        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         margin-left: 5%;
     }
 
+    #displayQuizDiv{
+        display: flex;
+        width: 40vw;
+    }
+
     #pointlessTextDiv{
-        width: 50vw;
+        width: 40vw;
     }
 
 }
