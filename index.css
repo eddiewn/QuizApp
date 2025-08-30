@@ -1,0 +1,10 @@
+#heroDiv{
+    display: flex;
+    align-items: flex-end;
+    background-color: #4F6DF5;
+    height: 30rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -50;
+}
