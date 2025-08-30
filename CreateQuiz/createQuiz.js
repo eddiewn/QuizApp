@@ -52,12 +52,20 @@ getSubmitButton.addEventListener("click", () => {
 
     let fillerArray = [];
     fillerInputs.forEach(input => {
-        fillerArray.push(input.value);
+        if(!input.value.trim()){
+            return;
+        }else{
+            fillerArray.push(input.value);
+        }
     });
 
     let correctArray = [];
     correctInputs.forEach(input => {
-        correctArray.push(input.value);
+        if(!input.value.trim()){
+            return;
+        }else{
+            correctArray.push(input.value);
+        }
     });
 
     let questionObject = {
