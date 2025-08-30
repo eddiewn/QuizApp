@@ -34,6 +34,7 @@ getCorrect.addEventListener("click", () => {
 let getSubmitButton = document.getElementById("submitQuestionButton");
 
 getSubmitButton.addEventListener("click", () => {
+    
     let question = document.getElementById("question");
     let actualQuestion = question.value;
 
@@ -42,6 +43,7 @@ getSubmitButton.addEventListener("click", () => {
 
     let missingFiller = Array.from(fillerInputs).some(input => !input.value.trim())
     let missingCorrect = Array.from(correctInputs).some(input => !input.value.trim())
+
 
     if(missingFiller && missingCorrect){
         alert("You are missing to fill inputs")
@@ -91,7 +93,7 @@ function addQuestion(quizArray){
 let getCompleteQuizButton = document.getElementById("completeQuizButton")
 
 getCompleteQuizButton.addEventListener("click", () => {
-
+    if(quizArray.length >= 1){
     console.log("Quiz array at save:", quizArray);
 
     let savedQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
@@ -99,6 +101,11 @@ getCompleteQuizButton.addEventListener("click", () => {
     localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
     document.querySelector(".previewQuestionDiv").innerHTML = "";
+    }
+    else{  
+        alert("Need more questions.")
+        return;
+    }
 });
 
 function cleanInputs(question, filler, correct){
