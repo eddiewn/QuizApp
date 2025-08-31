@@ -7,10 +7,9 @@ window.addEventListener("pageshow", (event) => {
     loadAnimation();
 });
 
-
 let growRadius = 0;
 
-function loadAnimation(){
+function loadAnimation() {
     const circle = document.querySelector(".spotlight");
 
     growRadius = growRadius + 50;
@@ -18,14 +17,14 @@ function loadAnimation(){
 
     if (growRadius < 1000) {
         requestAnimationFrame(loadAnimation);
-    }else{
+    } else {
         circle.remove();
     }
 }
 
 let shrinkRadius = 1000;
-function deloadAnimation(nextUrl){
-const circle = document.createElement("div");
+function deloadAnimation(nextUrl) {
+    const circle = document.createElement("div");
     circle.classList.add("spotlight");
     document.body.appendChild(circle);
     circle.style.setProperty("--r", 1000 + "px");
@@ -34,9 +33,9 @@ const circle = document.createElement("div");
     circle.style.setProperty("--r", shrinkRadius + "px");
 
     if (shrinkRadius > 0) {
-        requestAnimationFrame(() => deloadAnimation(nextUrl)); 
-    }else{
-         window.location.href=nextUrl
+        requestAnimationFrame(() => deloadAnimation(nextUrl));
+    } else {
+        window.location.href = nextUrl;
     }
 }
 
@@ -45,18 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-        setTimeout(() => {
-            header.classList.add("wait");
-        },50);
-
+            header.classList.add("scrolled");
+            setTimeout(() => {
+                header.classList.add("wait");
+            }, 50);
         } else {
-        header.classList.remove("scrolled");
-        setTimeout(() => {
-            header.classList.remove("wait");
-        },50);
-
+            header.classList.remove("scrolled");
+            setTimeout(() => {
+                header.classList.remove("wait");
+            }, 50);
         }
     });
 });
-

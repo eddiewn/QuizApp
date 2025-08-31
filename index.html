@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizApp</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="/Header/header.css">
-    <link rel="stylesheet" href="index.css">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>QuizApp</title>
+        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="/Header/header.css" />
+        <link rel="stylesheet" href="index.css" />
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <script src="/Header/header.js" defer></script>
-</head>
-<body>    
-    <re-use-header></re-use-header>
-    <main>
-        <div id="heroDiv">
-            <section id="textSection">
-                <h1>
-                    <span>Test your knowledge</span>
-                    <span>Anywhere, Anytime!</span>
-                </h1>
-                <p>Thousands of quizzes across every topic</p>
-                <nav id="textSectionButtons">
-                    <button>Start a Quiz</button>
-                    <button>Random Quiz</button>
-                </nav>    
-            </section>
-            <img id="lightBulb" src="images/lightBulb.png" alt="">
-        </div>
-    </main>
-    <div class="spotlight"></div>
-    <script>
-        const mainTag = document.querySelector("main");
-        window.addEventListener("load",() =>{
+        <script src="/Header/header.js" defer></script>
+    </head>
+    <body>
+        <re-use-header></re-use-header>
+        <main>
+            <div id="heroDiv">
+                <section id="textSection">
+                    <h1>
+                        <span>Test your knowledge</span>
+                        <span>Anywhere, Anytime!</span>
+                    </h1>
+                    <p>Thousands of quizzes across every topic</p>
+                    <nav id="textSectionButtons">
+                        <button>Start a Quiz</button>
+                        <button>Random Quiz</button>
+                    </nav>
+                </section>
+                <img id="lightBulb" src="images/lightBulb.png" alt="" />
+            </div>
+        </main>
+        <div class="spotlight"></div>
+        <script>
+            const mainTag = document.querySelector("main");
+            window.addEventListener("load", () => {
                 loadAnimation();
             });
-        
-    </script>
-<script src="script.js"></script>
-</body>
-
+        </script>
+        <script src="script.js"></script>
+    </body>
 </html>
