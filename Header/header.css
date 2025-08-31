@@ -10,7 +10,7 @@ header{
     position: fixed;
     top: 0;
     background: #0d1b1e;
-
+    z-index: 5;
 }
 
   #headerBackground{
@@ -99,7 +99,7 @@ header{
     width: 100%;
     top: 0;
     position: fixed;
-
+    z-index: 5;
 }
 
 #headerBackground{
