@@ -2,6 +2,18 @@ body{
     padding-top: 0;
 }
 
+h1{
+    padding: 0;
+    margin: 0;
+}
+
+h1 span{
+    display: block;
+    font-size: 2rem;
+}
+
+
+
 #heroDiv{
     display: flex;
     flex-direction: column;
@@ -16,10 +28,15 @@ body{
     width: auto;
 }
 
+#textSection{
+    /* gap: 2rem; */
+}
+
 #textSectionButtons{
     display: flex;
     justify-content: space-around;
     width: 100%;
+
 }
 
 #textSectionButtons button:nth-child(1){
@@ -59,9 +76,8 @@ body{
 
 
 @media (min-width: 768px) {
-    h1{
-    padding: 0;
-    margin: 0;
+h1 span{
+    font-size: 3rem;
 }
 
 #heroDiv{
@@ -73,6 +89,7 @@ body{
     height: auto;
     top: 0;
     z-index: 0;
+    padding-top: 8rem;
 }
 
 
@@ -80,11 +97,6 @@ body{
     width: 25rem;
 }
 
-
-h1 span{
-    display: block;
-    font-size: 3rem;
-}
 
 #heroDiv p{
     font-size: 1.3rem;
