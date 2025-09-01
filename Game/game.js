@@ -32,13 +32,10 @@ function game(quiz){
 		createGameDisplay(quiz, questionTracker, mainTag);
 		let clicked = false;
 		document.querySelectorAll(".answerSquare").forEach(square => {
-			square.addEventListener("click", function() {
+			square.addEventListener("click", (e) => {
 				if(clicked) return;
 				clicked = true;
 
-				const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
-				square.textContent == correctAnswer
-				);
 				playerAnswers.push(square.textContent)
 
 				document.querySelectorAll(".answerSquare").forEach(square => {
@@ -60,7 +57,7 @@ function game(quiz){
 			});
 		});
 	}else{
-		createEndScreen(mainTag);
+		createEndScreen(mainTag, quiz, playerAnswers);
 	}
 }
 
