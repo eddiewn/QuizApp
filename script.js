@@ -8,7 +8,6 @@ window.addEventListener("pageshow", (event) => {
 });
 
 let growRadius = 0;
-
 function loadAnimation() {
     const circle = document.querySelector(".spotlight");
 

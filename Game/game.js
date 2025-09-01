@@ -25,31 +25,27 @@ function game(quiz){
 	if(questionTracker != quiz.length){
 		
 		createGameDisplay();
-
+		let clicked = false;
 		document.querySelectorAll(".answerSquare").forEach(square => {
 			square.addEventListener("click", function() {
+				if(clicked) return;
+				clicked = true;
+
 				const isCorrect = quiz[questionTracker].correctValues.some(correctAnswer => 
 				square.textContent == correctAnswer
 				);
 				playerAnswers.push(square.textContent)
 
-				if(isCorrect){
-					
-				}else{
-
-				};
-				
 				document.querySelectorAll(".answerSquare").forEach(square => {
 
 					if(quiz[questionTracker].correctValues.includes(square.textContent)){
-					square.style.backgroundColor = "#90ee90";
+						square.style.backgroundColor = "#90ee90";
 					}else{
-					square.style.backgroundColor = "#FF474C";
+						square.style.backgroundColor = "#FF474C";
 					}
 				})
 
 				createProgressBar();
-
 				setTimeout(() => {
 					questionTracker++
 					mainTag.innerHTML = "";

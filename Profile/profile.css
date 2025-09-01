@@ -72,7 +72,18 @@ button:hover {
     }
 
     #pointlessTextDiv{
-        width: 40vw;
+        width: 30vw;
     }
+
+    #pointlessTextDiv h1{
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    #pointlessTextDiv p{
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+
 
 }
