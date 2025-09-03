@@ -68,19 +68,32 @@ main{
     border-radius: 1rem;
 }
 
-#answerDiv p{
+#answerDivHeader{
     text-align: center;
     width: 100%;
     margin: 2rem 0 2rem 0;
     opacity: 80%;
 }
 
-#qCount{
-    margin: 0;
-    padding: 0;
-}
-
-
 #endScreenCard img{
     width: 32px;
+}
+
+#cardNav{
+    padding-top: 2rem;
+    display: flex;
+    gap: 20px;
+    height: 10%;
+    width: 50vw;
+}
+
+#cardNav button:nth-child(n){
+    flex: 1;
+    background-color: #4F6DF5;
+    border: 0;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0 2rem;
+    font-size: 1em;
+    cursor: pointer;
 }

@@ -42,7 +42,7 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
 
     const shareButton = document.createElement("button");
     shareButton.id = "shareButton";
-    shareButton.textContent = "Share results!";
+    shareButton.textContent = "Share";
 
     cardNav.append(tryAgainButton, homeButton, shareButton);
 
@@ -50,7 +50,9 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
     answerDiv.id = "answerDiv";
 
     const answerDivHeader = document.createElement("p");
+    answerDivHeader.id = "answerDivHeader";
     answerDivHeader.textContent = "Your Answers";
+    
     answerDiv.appendChild(answerDivHeader);
 
     let answersRight = 0;
@@ -61,37 +63,35 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
         );
 
         const individQ = document.createElement("div");
+        individQ.classList.add("individQ");
 
         const qCount = document.createElement("p");
         qCount.id = "qCount";
         qCount.textContent = `Q${i + 1}`;
 
-        if (isCorrect) {
-            answersRight++;
-            if (i < 3) {
-                const greenCheckmark = document.createElement("img");
-                greenCheckmark.src = "../images/greenCheckmark.png";
-                individQ.appendChild(qCount);
-                individQ.appendChild(greenCheckmark);
-            }
-            if (i == 3) {
-                const viewAllButton = document.createElement("button");
-                viewAllButton.textContent = "View all";
-                individQ.appendChild(viewAllButton);
-            }
+        if (i == 6) {
+            const viewAllButton = document.createElement("button");
+            viewAllButton.textContent = "View all";
+            individQ.appendChild(viewAllButton);
         } else {
-            if (i < 3) {
-                const redError = document.createElement("img");
-                redError.src = "../images/error-10376.png";
-                individQ.appendChild(qCount);
-                individQ.appendChild(redError);
-            }
-            if (i == 3) {
-                const viewAllButton = document.createElement("button");
-                viewAllButton.textContent = "View all";
-                individQ.appendChild(viewAllButton);
+            if (isCorrect) {
+                answersRight++;
+                if (i < 6) {
+                    const greenCheckmark = document.createElement("img");
+                    greenCheckmark.src = "../images/greenCheckmark.png";
+                    individQ.appendChild(qCount);
+                    individQ.appendChild(greenCheckmark);
+                }
+            } else {
+                if (i < 6) {
+                    const redError = document.createElement("img");
+                    redError.src = "../images/error-10376.png";
+                    individQ.appendChild(qCount);
+                    individQ.appendChild(redError);
+                }
             }
         }
+
         answerDiv.appendChild(individQ);
     });
 
