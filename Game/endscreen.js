@@ -3,7 +3,9 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
     const endScreenCard = document.createElement("article");
     endScreenCard.id = "endScreenCard";
 
-    const cardHeader = document.createElement("h1");
+    const cardHeaderH1 = document.createElement("h1");
+    const cardHeader = document.createElement("div")
+    cardHeader.appendChild(cardHeaderH1);
 
     const scoreDiv = document.createElement("div");
     scoreDiv.id = "scoreDiv";
@@ -49,11 +51,18 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
     const answerDiv = document.createElement("div");
     answerDiv.id = "answerDiv";
 
+    const answerDivHeaderDiv = document.createElement("div");
+    answerDivHeaderDiv.id = "answerDivHeaderDiv";
     const answerDivHeader = document.createElement("p");
     answerDivHeader.id = "answerDivHeader";
     answerDivHeader.textContent = "Your Answers";
     
-    answerDiv.appendChild(answerDivHeader);
+    answerDivHeaderDiv.appendChild(answerDivHeader);
+    answerDiv.appendChild(answerDivHeaderDiv);
+
+    const individQContainer = document.createElement("div");
+    individQContainer.id = "individQContainer";
+
 
     let answersRight = 0;
     quiz.forEach((question, i) => {
@@ -91,16 +100,16 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
                 }
             }
         }
-
-        answerDiv.appendChild(individQ);
+        individQContainer.appendChild(individQ);
+        answerDiv.appendChild(individQContainer);
     });
 
     let percentage = Math.round((answersRight / quiz.length) * 100);
     if (percentage >= 70) {
-        cardHeader.textContent = "Well done!";
+        cardHeaderH1.textContent = `🎉Well done!🎉`;
         scoreTextTwo.textContent = "Great job!";
     } else {
-        cardHeader.textContent = "Quiz Done!";
+        cardHeaderH1.textContent = "🎉Quiz Done!🎉";
         scoreTextTwo.textContent = "Its ok!";
     }
 
