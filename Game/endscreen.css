@@ -46,10 +46,11 @@ main {
 }
 
 #leftDiv h2 {
-    font-size: 8rem;
+    font-size: 6rem;
 }
 
 #scoreTextTwo {
+    font-size: 1.5em;
     opacity: 70%;
 }
 
@@ -64,6 +65,8 @@ main {
     flex-direction: column;
     width: 40vw;
     height: 30%;
+    border: 2px solid gainsboro;
+    border-radius: 20px;
 }
 
 #answerDivHeaderDiv {
@@ -73,7 +76,7 @@ main {
     width: 100%;
     opacity: 80%;
     height: 20%;
-    
+
 }
 
 #answerDivHeader {
@@ -82,7 +85,7 @@ main {
 
 #individQContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     height: 80%;
     text-align: center;
