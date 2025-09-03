@@ -10,6 +10,8 @@ let quizIndex = localStorage.getItem("playSelectedQuiz")
 localStorage.removeItem("playSelectedQuiz");
 
 let mainTag = document.querySelector("main")
+const disableCSS = document.getElementById("disableBS");
+disableCSS.disabled = true;
 
 let playerAnswers = [];
 
@@ -58,6 +60,8 @@ function game(quiz){
 		});
 	}else{
 		createEndScreen(mainTag, quiz, playerAnswers);
+		disableCSS.disabled = false;
+
 	}
 }
 
