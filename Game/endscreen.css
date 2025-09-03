@@ -3,6 +3,10 @@ body{
     padding-top: 0;
 }
 
+p{
+    margin: 0;
+}
+
 main{
     display: flex;
     flex-direction: column;
@@ -15,12 +19,67 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blue;
+    background-color: white;
     width: 70vw;
     margin: 0 auto;
     height: 80%;
-    
+    font-size: 2rem;
+    color: black;
+    border-radius: 45px 45px 0 0;
+    font-family: "Ubuntu", sans-serif;
 }
+
+#endScreenCard h1{
+    margin: 3rem 0 3rem 0;
+}
+
+#scoreDiv{
+    display: flex;
+    margin-bottom: 2.7rem;
+}
+
+#leftDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+}
+
+#leftDiv h2{
+    font-size: 8rem;
+}
+
+#scoreTextTwo{
+    opacity: 70%;
+}
+
+#rightDiv{
+    width: 20vw;
+    height: 100%;
+    background-color: gray;
+}
+
+#answerDiv{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50vw;
+    border: 2px solid lightgray;
+    border-radius: 1rem;
+}
+
+#answerDiv p{
+    text-align: center;
+    width: 100%;
+    margin: 2rem 0 2rem 0;
+    opacity: 80%;
+}
+
+#qCount{
+    margin: 0;
+    padding: 0;
+}
+
 
 #endScreenCard img{
     width: 32px;

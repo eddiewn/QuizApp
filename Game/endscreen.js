@@ -14,16 +14,21 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
     const rightDiv = document.createElement("div");
     rightDiv.id = "rightDiv";
 
+    const circleScore = document.createElement("div");
+    circleScore.id = "circleScore";
+
+    rightDiv.appendChild(circleScore);
+
     const scoreText = document.createElement("h2");
     scoreText.id = "scoreText";
 
     const scoreTextTwo = document.createElement("p");
-    scoreTextTwo.id = "scoreTextTwo"
+    scoreTextTwo.id = "scoreTextTwo";
 
     leftDiv.appendChild(scoreText);
     leftDiv.appendChild(scoreTextTwo);
     scoreDiv.appendChild(leftDiv);
-    scoreDiv.appendChild(rightDiv)
+    scoreDiv.appendChild(rightDiv);
 
     const cardNav = document.createElement("nav");
     cardNav.id = "cardNav";
@@ -37,14 +42,14 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
 
     const shareButton = document.createElement("button");
     shareButton.id = "shareButton";
-    shareButton.textContent = "Share results!"
+    shareButton.textContent = "Share results!";
 
     cardNav.append(tryAgainButton, homeButton, shareButton);
 
     const answerDiv = document.createElement("div");
     answerDiv.id = "answerDiv";
 
-    const answerDivHeader = document.createElement("p")
+    const answerDivHeader = document.createElement("p");
     answerDivHeader.textContent = "Your Answers";
     answerDiv.appendChild(answerDivHeader);
 
@@ -54,30 +59,40 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
         const isCorrect = question.correctValues.some(
             (answer) => answer === playerAnswer
         );
+
+        const individQ = document.createElement("div");
+
+        const qCount = document.createElement("p");
+        qCount.id = "qCount";
+        qCount.textContent = `Q${i + 1}`;
+
         if (isCorrect) {
             answersRight++;
             if (i < 3) {
                 const greenCheckmark = document.createElement("img");
                 greenCheckmark.src = "../images/greenCheckmark.png";
-                answerDiv.appendChild(greenCheckmark);
+                individQ.appendChild(qCount);
+                individQ.appendChild(greenCheckmark);
             }
             if (i == 3) {
                 const viewAllButton = document.createElement("button");
                 viewAllButton.textContent = "View all";
-                answerDiv.appendChild(viewAllButton);
+                individQ.appendChild(viewAllButton);
             }
         } else {
             if (i < 3) {
                 const redError = document.createElement("img");
                 redError.src = "../images/error-10376.png";
-                answerDiv.appendChild(redError);
+                individQ.appendChild(qCount);
+                individQ.appendChild(redError);
             }
             if (i == 3) {
                 const viewAllButton = document.createElement("button");
                 viewAllButton.textContent = "View all";
-                answerDiv.appendChild(viewAllButton);
+                individQ.appendChild(viewAllButton);
             }
         }
+        answerDiv.appendChild(individQ);
     });
 
     let percentage = Math.round((answersRight / quiz.length) * 100);
@@ -87,12 +102,11 @@ export function createEndScreen(mainTag, quiz, playerAnswers) {
     } else {
         cardHeader.textContent = "Quiz Done!";
         scoreTextTwo.textContent = "Its ok!";
-
     }
 
     console.log(percentage + "%");
 
-    scoreText.textContent = `${answersRight}/${quiz.length}`
+    scoreText.textContent = `${answersRight}/${quiz.length}`;
 
     endScreenCard.appendChild(cardHeader);
     endScreenCard.appendChild(scoreDiv);
